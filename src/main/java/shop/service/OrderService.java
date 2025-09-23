@@ -3,10 +3,7 @@ package shop.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import shop.domain.Delivery;
-import shop.domain.Member;
-import shop.domain.Order;
-import shop.domain.OrderItem;
+import shop.domain.*;
 import shop.domain.items.Item;
 import shop.repository.ItemRepository;
 import shop.repository.MemberRepository;
@@ -44,5 +41,9 @@ public class OrderService {
     public void cancelOrder(Long orderId) {
         Order order = orderRepository.findOne(orderId);
         order.cancel();
+    }
+
+    public List<Order> findOrders(OrderSearch orderSearch) {
+        return orderRepository.findAllByCriteria(orderSearch);
     }
 }
