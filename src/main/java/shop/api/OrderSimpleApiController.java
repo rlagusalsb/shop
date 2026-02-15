@@ -1,4 +1,4 @@
-package shop.controller;
+package shop.api;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
