@@ -19,7 +19,7 @@ public class OrderApiController {
 
     private final OrderRepository orderRepository;
 
-    //V1 - 엔티티 직접 노출
+    //V1. 엔티티 직접 노출 -> 금지
     @GetMapping("/api/v1/orders")
     public List<Order> ordersV1() {
         List<Order> all = orderRepository.findAllByCriteria(new OrderSearch());
@@ -33,7 +33,7 @@ public class OrderApiController {
         return all;
     }
 
-    //V2 - 엔티티를 DTO로 변환
+    //V2. 엔티티를 DTO로 변환
     @GetMapping("/api/v2/orders")
     public List<OrderDto> ordersV2() {
         List<Order> orders = orderRepository.findAllByCriteria(new OrderSearch());
